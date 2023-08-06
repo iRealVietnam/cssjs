@@ -1,0 +1,27 @@
+<script>
+var $stickyHeight = 460; // chiều cao của banner quảng cáo
+var $padding = 0; // khoảng cách top của banner khi dính
+var $topOffset = 1200; // khoảng cách từ top của banner khi bắt đầu dính (tức là khoảng cách tính từ trên xuống đến vị trí đặt banner )
+var $footerHeight = 500; // Định vị điểm dừng của banner, tính từ chân lên
+/* <![CDATA[ */
+function scrollSticky(){
+if($(window).height() >= $stickyHeight) {
+var aOffset = $('#sticky').offset();
+if($(document).height() - $footerHeight - $padding < $(window).scrollTop() + $stickyHeight) {
+var $top = $(document).height() - $stickyHeight - $footerHeight - $padding - 185;
+$('#sticky').attr('style', 'position:absolute; top:'+$top+'px;');
+}else if($(window).scrollTop() + $padding > $topOffset) {
+$('#sticky').attr('style', 'position:fixed; top:'+$padding+'px;');
+}else{
+$('#sticky').attr('style', 'position:relative;');
+}
+}
+}
+$(window).scroll(function(){
+scrollSticky();
+});
+/* ]]> */
+</script>
+<div id="sticky">
+<a href="https://www.ecovillagesaigonrivers.com/" style="font-weight: normal;" target="_blank" title="Ecovillage Saigon River"><img alt="Eco Village Saigon River" border="0" height="100%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5dX3kz1dlaTBwAEBRcf4iuuQxcOLon0-DB6vFtKVGiCIcjw0OIB3MrDop1zbG6OjNREnWQ4TIZPO8DDgyV4YAKX_RGa6xHOMd_S1M4gONmn28NMZNsRUwDW3S9KFtBFMeSPZ0WmP5u6rg0G0bFW3lFC55cbFG20b4JcQrcZ7iu2jTtT7zrVlHKejd_Cg/s1600/banner-eco-village-saigon-river.gif" title="Ecovillage Saigon River" width="100%" / /></a>
+</div>
